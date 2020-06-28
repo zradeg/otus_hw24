@@ -1,0 +1,16 @@
+dev tap
+proto udp
+local 192.168.11.21
+port 1194
+remote 192.168.11.20
+secret /etc/openvpn/keys/ptp.key
+ifconfig 10.10.10.2 255.255.255.0
+route 10.10.10.0 255.255.255.0
+persist-key
+keepalive 10 60
+ping-timer-rem
+verb 7
+daemon
+script-security 2
+route-up /etc/openvpn/route.sh
+log-append /var/log/openvpn.log
